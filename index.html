@@ -3,32 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
     <link rel="stylesheet" href="/src/css/tailwind.css" />
     <script src="/src/js/script.js" type="module" defer></script>
 
-    <title>Frontend Mentor | Tip calculator app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <title>Tip Calculator App</title>
   </head>
-  <body>
-    Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount / person Total / person Reset
+  <body class="bg-is-light-grayish-cyan font-SpaceMono text-is-very-dark-cyan">
+    <main class="flex flex-col items-center">
+      <span class="py-10 font-bold uppercase tracking-[0.4em]"
+        >Spli <br />
+        tter</span
+      >
 
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
-      <a href="#">Your Name Here</a>.
-    </div>
+      <div class="flex w-[48rem] gap-4 rounded-xl bg-is-white p-6" id="app-card">
+        <div class="w-[50%] p-4">
+          <form action="#" class="flex flex-col gap-8">
+            <div class="flex flex-col gap-2">
+              <label for="bill-input">Bill</label>
+              <input type="number" placeholder="0" id="bill-input" />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="tip-custom">Select Tip %</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button class="tip-option">5%</button>
+                <button class="tip-option">10%</button>
+                <button class="tip-option">15%</button>
+                <button class="tip-option">25%</button>
+                <button class="tip-option">50%</button>
+                <input
+                  type="number"
+                  placeholder="Custom"
+                  max="100"
+                  id="tip-custom"
+                  class="py-0 pl-4 text-center placeholder:w-fit placeholder:text-base placeholder:text-is-dark-grayish-cyan"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="people-input">Number of People</label>
+              <input type="number" placeholder="0" id="people-input" />
+            </div>
+          </form>
+        </div>
+
+        <div class="flex w-[50%] flex-col gap-8 rounded-xl bg-is-very-dark-cyan px-6 pb-8 pt-10 text-is-white">
+          <div class="flex">
+            <div class="flex flex-col gap-0">
+              <p class="text-xs">Tip Amount</p>
+              <span class="text-xs text-is-grayish-cyan">/ person</span>
+            </div>
+
+            <p class="ml-auto text-3xl font-bold text-is-strong-cyan">$0.00</p>
+          </div>
+
+          <div class="flex">
+            <div class="flex flex-col gap-0">
+              <p class="text-xs">Total</p>
+              <span class="text-xs text-is-grayish-cyan">/ person</span>
+            </div>
+
+            <p class="ml-auto text-3xl font-bold text-is-strong-cyan">$0.00</p>
+          </div>
+
+          <button class="btn-inactive mt-auto w-full rounded-lg py-2 font-bold uppercase text-is-very-dark-cyan">
+            Reset
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mx-auto mt-8 w-fit text-sm">
+      <div>
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="#" target="_blank" class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
+          >Hammad Javed</a
+        >.
+      </div>
+    </footer>
   </body>
 </html>

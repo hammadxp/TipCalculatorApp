@@ -3,4 +3,27 @@
 @tailwind utilities;
 
 @layer components {
+  label {
+    @apply text-xs;
+  }
+
+  input {
+    @apply rounded-md bg-is-very-light-grayish-cyan py-2 text-right text-xl font-bold duration-100;
+  }
+
+  .tip-option {
+    @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
+  }
+
+  .btn-active {
+    @apply bg-is-strong-cyan;
+  }
+
+  .btn-inactive {
+    @apply bg-is-dark-grayish-cyan;
+  }
+}
+
+*:focus-visible {
+  @apply focus:outline-none focus:ring-4 focus:ring-is-strong-cyan focus:ring-opacity-80;
 }
