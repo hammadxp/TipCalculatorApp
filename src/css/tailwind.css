@@ -4,7 +4,7 @@
 
 @layer components {
   label {
-    @apply text-xs;
+    @apply w-fit text-xs;
   }
 
   input {
@@ -12,15 +12,27 @@
   }
 
   .tip-option {
-    @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
+    @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white shadow-sm duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
+  }
+
+  .tip-option-custom {
+    @apply py-0 pl-4 text-center placeholder:w-fit placeholder:text-base placeholder:text-is-dark-grayish-cyan;
+  }
+
+  .tip-selected-styles {
+    @apply bg-is-strong-cyan/50 text-is-very-dark-cyan;
   }
 
   .btn-active {
-    @apply bg-is-strong-cyan;
+    @apply bg-is-strong-cyan shadow-md;
   }
 
   .btn-inactive {
     @apply bg-is-dark-grayish-cyan;
+  }
+
+  .invalid-input {
+    @apply mt-2 pr-4 text-right text-xs font-bold text-red-500;
   }
 }
 

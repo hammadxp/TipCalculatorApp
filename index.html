@@ -26,37 +26,44 @@
       >
 
       <div class="flex w-[48rem] gap-4 rounded-xl bg-is-white p-6" id="app-card">
+        <!-- Input -->
+
         <div class="w-[50%] p-4">
-          <form action="#" class="flex flex-col gap-8">
+          <form action="#" class="flex flex-col gap-8" id="tip-form">
+            <!-- Bill -->
+
             <div class="flex flex-col gap-2">
               <label for="bill-input">Bill</label>
               <input type="number" placeholder="0" id="bill-input" />
+              <p class="invalid-input invalid-bill hidden">Enter a value above 0</p>
             </div>
+
+            <!-- Tip options -->
 
             <div class="flex flex-col gap-2">
               <label for="tip-custom">Select Tip %</label>
-              <div class="grid grid-cols-3 gap-2">
-                <button class="tip-option">5%</button>
+              <div class="grid grid-cols-3 gap-2" id="tip-options">
+                <button class="tip-option tip-selected-styles tip-selected">5%</button>
                 <button class="tip-option">10%</button>
                 <button class="tip-option">15%</button>
                 <button class="tip-option">25%</button>
                 <button class="tip-option">50%</button>
-                <input
-                  type="number"
-                  placeholder="Custom"
-                  max="100"
-                  id="tip-custom"
-                  class="py-0 pl-4 text-center placeholder:w-fit placeholder:text-base placeholder:text-is-dark-grayish-cyan"
-                />
+                <input type="number" placeholder="Custom" min="1" max="100" id="tip-custom" class="tip-option-custom" />
+                <p class="invalid-input invalid-tip col-span-3 hidden">Enter a value between 1 to 100</p>
               </div>
             </div>
+
+            <!-- Number of people -->
 
             <div class="flex flex-col gap-2">
               <label for="people-input">Number of People</label>
               <input type="number" placeholder="0" id="people-input" />
+              <p class="invalid-input invalid-people hidden">Enter a value between 1 to 20</p>
             </div>
           </form>
         </div>
+
+        <!-- Output -->
 
         <div class="flex w-[50%] flex-col gap-8 rounded-xl bg-is-very-dark-cyan px-6 pb-8 pt-10 text-is-white">
           <div class="flex">
@@ -77,7 +84,10 @@
             <p class="ml-auto text-3xl font-bold text-is-strong-cyan">$0.00</p>
           </div>
 
-          <button class="btn-inactive mt-auto w-full rounded-lg py-2 font-bold uppercase text-is-very-dark-cyan">
+          <button
+            class="btn-inactive mt-auto w-full rounded-lg py-2 font-bold uppercase text-is-very-dark-cyan"
+            id="btn-reset"
+          >
             Reset
           </button>
         </div>
@@ -93,7 +103,10 @@
           class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
           >Frontend Mentor</a
         >. Coded by
-        <a href="#" target="_blank" class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
+        <a
+          href="https://hammad-dev.netlify.app"
+          target="_blank"
+          class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
           >Hammad Javed</a
         >.
       </div>
