@@ -1,12 +1,32 @@
 const tipForm = document.getElementById("tip-form");
 const tipOptions = document.getElementById("tip-options");
-const billInput = document.getElementById("bill-input");
-const peopleInput = document.getElementById("people-input");
-const btnReset = document.getElementById("btn-reset");
+
+const inputBill = document.getElementById("bill-input");
+const inputTip = document.getElementById("tip-input");
+const inputPeople = document.getElementById("people-input");
 
 const invalidBill = document.querySelector(".invalid-bill");
 const invalidTip = document.querySelector(".invalid-tip");
 const invalidPeople = document.querySelector(".invalid-people");
+
+const btnCalculate = document.getElementById("btn-calculate");
+const btnReset = document.getElementById("btn-reset");
+
+// Input change listener (for Calculate button visibility)
+
+inputBill.addEventListener("input", checkInputs);
+inputTip.addEventListener("input", checkInputs);
+inputPeople.addEventListener("input", checkInputs);
+
+function checkInputs() {
+  if (inputBill.value && inputTip.value && inputPeople.value) {
+    btnCalculate.classList.remove("btn-inactive");
+    btnCalculate.classList.add("btn-active");
+  } else {
+    btnCalculate.classList.remove("btn-active");
+    btnCalculate.classList.add("btn-inactive");
+  }
+}
 
 // Tip option change handler
 
@@ -30,6 +50,7 @@ tipOptions.addEventListener("click", function (e) {
 
   if (btn) {
     btn.classList.add("tip-selected-styles", "tip-selected");
+    inputTip.value = "";
   }
 
   if (btnCustom) {
@@ -40,19 +61,23 @@ tipOptions.addEventListener("click", function (e) {
 // Submition handler
 
 tipForm.addEventListener("submit", function (e) {
+  console.log("yes");
+
   e.preventDefault();
 
-  const bill = billInput.value;
-  const people = peopleInput.value;
+  const bill = inputBill.value;
+  const people = inputPeople.value;
   const tip = tipOptions.querySelector(".tip-selected").textContent.replace("%", "");
 
+  console.log(bill);
+
   if (bill <= 0) {
-    billInput.classList.add("border-2", "border-red-500");
+    inputBill.classList.add("border-2", "border-red-500");
     invalidBill.classList.remove("hidden");
   }
 
   if (people < 0 || people > 20) {
-    peopleInput.classList.add("border-2", "border-red-500");
+    inputPeople.classList.add("border-2", "border-red-500");
     invalidPeople.classList.remove("hidden");
   }
 

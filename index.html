@@ -41,14 +41,14 @@
             <!-- Tip options -->
 
             <div class="flex flex-col gap-2">
-              <label for="tip-custom">Select Tip %</label>
+              <label for="tip-input">Select Tip %</label>
               <div class="grid grid-cols-3 gap-2" id="tip-options">
                 <button class="tip-option tip-selected-styles tip-selected">5%</button>
                 <button class="tip-option">10%</button>
                 <button class="tip-option">15%</button>
                 <button class="tip-option">25%</button>
                 <button class="tip-option">50%</button>
-                <input type="number" placeholder="Custom" min="1" max="100" id="tip-custom" class="tip-option-custom" />
+                <input type="number" placeholder="Custom" min="1" max="100" id="tip-input" class="tip-option-custom" />
                 <p class="invalid-input invalid-tip col-span-3 hidden">Enter a value between 1 to 100</p>
               </div>
             </div>
@@ -60,6 +60,10 @@
               <input type="number" placeholder="0" id="people-input" />
               <p class="invalid-input invalid-people hidden">Enter a value between 1 to 20</p>
             </div>
+
+            <!-- Submit -->
+
+            <button type="submit" id="btn-calculate" class="btn-inactive btn-wide">Calculate</button>
           </form>
         </div>
 
@@ -85,7 +89,7 @@
           </div>
 
           <button
-            class="btn-inactive mt-auto w-full rounded-lg py-2 font-bold uppercase text-is-very-dark-cyan"
+            class="btn-wide bg-is-strong-cyan text-is-very-dark-cyan hover:bg-is-strong-cyan hover:text-is-very-dark-cyan"
             id="btn-reset"
           >
             Reset
