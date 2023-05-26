@@ -8,14 +8,14 @@
   }
 
   input {
-    @apply rounded-md bg-is-very-light-grayish-cyan py-2 text-right text-xl font-bold duration-100;
+    @apply rounded-md border-2 border-transparent bg-is-very-light-grayish-cyan py-2 text-right text-xl font-bold duration-100;
   }
 
-  .tip-option {
+  .btn-tip {
     @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white shadow-sm duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
   }
 
-  .tip-option-custom {
+  .btn-tip-custom {
     @apply py-0 pl-4 text-center placeholder:w-fit placeholder:text-base placeholder:text-is-dark-grayish-cyan;
   }
 
@@ -23,16 +23,30 @@
     @apply bg-is-strong-cyan/50 text-is-very-dark-cyan;
   }
 
-  .btn-wide {
-    @apply cursor-pointer rounded-md bg-is-very-dark-cyan py-2 text-center text-base font-bold uppercase text-is-white shadow-sm duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
-  }
-
-  .btn-inactive {
-    @apply cursor-not-allowed opacity-20 shadow-none hover:bg-is-very-dark-cyan hover:text-is-white;
-  }
-
   .invalid-input {
     @apply mt-2 pr-4 text-right text-xs font-bold text-red-500;
+  }
+
+  /* btn */
+
+  .btn-wide {
+    @apply cursor-pointer rounded-md bg-black py-2 text-center text-base font-bold uppercase text-white shadow-sm duration-100;
+  }
+
+  .btn-calculate {
+    @apply bg-is-very-dark-cyan text-is-white hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
+  }
+
+  .btn-calculate-disabled {
+    @apply cursor-not-allowed opacity-20 shadow-none;
+  }
+
+  .btn-reset {
+    @apply mt-auto bg-is-strong-cyan text-is-very-dark-cyan hover:bg-[#92dfd5];
+  }
+
+  .btn-reset-disabled {
+    @apply mt-auto cursor-not-allowed opacity-20 shadow-none;
   }
 }
 

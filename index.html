@@ -43,13 +43,13 @@
             <div class="flex flex-col gap-2">
               <label for="tip-input">Select Tip %</label>
               <div class="grid grid-cols-3 gap-2" id="tip-options">
-                <button class="tip-option tip-selected-styles tip-selected">5%</button>
-                <button class="tip-option">10%</button>
-                <button class="tip-option">15%</button>
-                <button class="tip-option">25%</button>
-                <button class="tip-option">50%</button>
-                <input type="number" placeholder="Custom" min="1" max="100" id="tip-input" class="tip-option-custom" />
-                <p class="invalid-input invalid-tip col-span-3 hidden">Enter a value between 1 to 100</p>
+                <button class="btn-tip tip-option tip-selected tip-selected-styles">5%</button>
+                <button class="btn-tip tip-option">10%</button>
+                <button class="btn-tip tip-option">15%</button>
+                <button class="btn-tip tip-option">25%</button>
+                <button class="btn-tip tip-option">50%</button>
+                <input type="number" placeholder="Custom" id="tip-input" class="btn-tip-custom tip-option" />
+                <p class="invalid-input invalid-tip col-span-3 mt-2 hidden">Enter a value between 1 to 100</p>
               </div>
             </div>
 
@@ -63,7 +63,7 @@
 
             <!-- Submit -->
 
-            <button type="submit" id="btn-calculate" class="btn-inactive btn-wide">Calculate</button>
+            <button type="submit" id="btn-calculate" class="btn-wide btn-calculate-disabled">Calculate</button>
           </form>
         </div>
 
@@ -72,28 +72,29 @@
         <div class="flex w-[50%] flex-col gap-8 rounded-xl bg-is-very-dark-cyan px-6 pb-8 pt-10 text-is-white">
           <div class="flex">
             <div class="flex flex-col gap-0">
-              <p class="text-xs">Tip Amount</p>
-              <span class="text-xs text-is-grayish-cyan">/ person</span>
+              <p class="text-xs">Tip</p>
+              <span class="text-xs text-is-grayish-cyan">/ total</span>
             </div>
 
-            <p class="ml-auto text-3xl font-bold text-is-strong-cyan">$0.00</p>
+            <p class="ml-auto flex gap-0 text-3xl font-bold text-is-strong-cyan">
+              <span>$</span>
+              <span id="tip-total">0.00</span>
+            </p>
           </div>
 
           <div class="flex">
             <div class="flex flex-col gap-0">
-              <p class="text-xs">Total</p>
+              <p class="text-xs">Tip</p>
               <span class="text-xs text-is-grayish-cyan">/ person</span>
             </div>
 
-            <p class="ml-auto text-3xl font-bold text-is-strong-cyan">$0.00</p>
+            <p class="ml-auto flex gap-0 text-3xl font-bold text-is-strong-cyan">
+              <span>$</span>
+              <span id="tip-per-person">0.00</span>
+            </p>
           </div>
 
-          <button
-            class="btn-wide bg-is-strong-cyan text-is-very-dark-cyan hover:bg-is-strong-cyan hover:text-is-very-dark-cyan"
-            id="btn-reset"
-          >
-            Reset
-          </button>
+          <button class="btn-wide btn-reset-disabled" id="btn-reset">Reset</button>
         </div>
       </div>
     </main>

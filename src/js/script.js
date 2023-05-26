@@ -5,81 +5,154 @@ const inputBill = document.getElementById("bill-input");
 const inputTip = document.getElementById("tip-input");
 const inputPeople = document.getElementById("people-input");
 
-const invalidBill = document.querySelector(".invalid-bill");
-const invalidTip = document.querySelector(".invalid-tip");
-const invalidPeople = document.querySelector(".invalid-people");
+const tipTotalEl = document.getElementById("tip-total");
+const tipPerPersonEl = document.getElementById("tip-per-person");
 
 const btnCalculate = document.getElementById("btn-calculate");
 const btnReset = document.getElementById("btn-reset");
-
-// Input change listener (for Calculate button visibility)
-
-inputBill.addEventListener("input", checkInputs);
-inputTip.addEventListener("input", checkInputs);
-inputPeople.addEventListener("input", checkInputs);
-
-function checkInputs() {
-  if (inputBill.value && inputTip.value && inputPeople.value) {
-    btnCalculate.classList.remove("btn-inactive");
-    btnCalculate.classList.add("btn-active");
-  } else {
-    btnCalculate.classList.remove("btn-active");
-    btnCalculate.classList.add("btn-inactive");
-  }
-}
 
 // Tip option change handler
 
 tipOptions.addEventListener("click", function (e) {
   e.preventDefault();
 
-  const btn = e.target.closest("button");
-  const btnCustom = e.target.closest("input");
+  const btn = e.target.closest(".tip-option");
 
-  if (!btn && !btnCustom) return;
+  if (!btn) return;
 
-  // Remove active styles from all elements
+  // Remove 'selected' style from all elements
 
   document.querySelectorAll(".tip-option").forEach((option) => {
-    option.classList.remove("tip-selected-styles", "tip-selected");
+    option.classList.remove("tip-selected", "tip-selected-styles");
   });
 
-  document.querySelector(".tip-option-custom").classList.remove("tip-selected");
+  // Add 'selected' style to clicked button
 
-  // Add active style to selected button
+  btn.classList.add("tip-selected", "tip-selected-styles");
+  inputTip.classList.remove("tip-selected-styles"); // Skip styling input element
 
-  if (btn) {
-    btn.classList.add("tip-selected-styles", "tip-selected");
-    inputTip.value = "";
-  }
-
-  if (btnCustom) {
-    btnCustom.classList.add("tip-selected");
-  }
+  inputTip.value = inputTip.value ? inputTip.value : "";
 });
+
+// Input change handler (for 'Calculate' button visibility)
+
+inputBill.addEventListener("input", checkInputs);
+tipOptions.addEventListener("click", checkInputs);
+inputTip.addEventListener("input", checkInputs);
+inputPeople.addEventListener("input", checkInputs);
+
+function checkInputs() {
+  const selectedTip = tipOptions.querySelector(".tip-selected");
+
+  if (inputBill.value && (selectedTip.textContent || selectedTip.value) && inputPeople.value) {
+    btnCalculate.classList.remove("btn-calculate-disabled");
+    btnCalculate.classList.add("btn-calculate");
+  } else {
+    btnCalculate.classList.remove("btn-calculate");
+    btnCalculate.classList.add("btn-calculate-disabled");
+  }
+}
+
+// Reset invalid indicators
+
+inputBill.addEventListener("click", resetInvalidIndicator);
+inputTip.addEventListener("click", resetInvalidIndicator);
+inputPeople.addEventListener("click", resetInvalidIndicator);
+
+function resetInvalidIndicator() {
+  const invalidBill = document.querySelector(".invalid-bill");
+  const invalidTip = document.querySelector(".invalid-tip");
+  const invalidPeople = document.querySelector(".invalid-people");
+
+  if (this.id === "bill-input") {
+    inputBill.classList.remove("border-red-500");
+    invalidBill.classList.add("hidden");
+  }
+  if (this.id === "tip-input") {
+    inputTip.classList.remove("border-red-500");
+    invalidTip.classList.add("hidden");
+  }
+  if (this.id === "people-input") {
+    inputPeople.classList.remove("border-red-500");
+    invalidPeople.classList.add("hidden");
+  }
+}
 
 // Submition handler
 
 tipForm.addEventListener("submit", function (e) {
-  console.log("yes");
+  const selectedTip = tipOptions.querySelector(".tip-selected");
 
-  e.preventDefault();
+  if (inputBill.value && (selectedTip.textContent || selectedTip.value) && inputPeople.value) {
+    e.preventDefault();
 
-  const bill = inputBill.value;
-  const people = inputPeople.value;
-  const tip = tipOptions.querySelector(".tip-selected").textContent.replace("%", "");
+    const bill = inputBill.value;
+    const tip = selectedTip.textContent ? selectedTip.textContent.replace("%", "") : selectedTip.value;
+    const people = inputPeople.value;
 
-  console.log(bill);
+    console.log("Bill", bill, "-", "Tip", tip, "-", "People", people);
 
-  if (bill <= 0) {
-    inputBill.classList.add("border-2", "border-red-500");
-    invalidBill.classList.remove("hidden");
+    let invalid;
+
+    const invalidBill = document.querySelector(".invalid-bill");
+    const invalidTip = document.querySelector(".invalid-tip");
+    const invalidPeople = document.querySelector(".invalid-people");
+
+    if (bill <= 0) {
+      inputBill.classList.add("border-red-500");
+      invalidBill.classList.remove("hidden");
+
+      invalid = true;
+    }
+
+    if (tip <= 0 || tip > 100) {
+      inputTip.classList.add("border-red-500");
+      invalidTip.classList.remove("hidden");
+
+      invalid = true;
+    }
+
+    if (people <= 0 || people > 20) {
+      inputPeople.classList.add("border-red-500");
+      invalidPeople.classList.remove("hidden");
+
+      invalid = true;
+    }
+
+    if (invalid) return;
+
+    // Calculate tip
+
+    const tipTotal = (bill * tip) / 100;
+    const tipPerPerson = tipTotal / people;
+
+    // Update output
+
+    tipTotalEl.textContent = tipTotal;
+    tipPerPersonEl.textContent = tipPerPerson;
+
+    // Toggle reset button visibility
+
+    btnReset.classList.remove("btn-reset-disabled");
+    btnReset.classList.add("btn-reset");
+  } else {
+    e.preventDefault();
   }
+});
 
-  if (people < 0 || people > 20) {
-    inputPeople.classList.add("border-2", "border-red-500");
-    invalidPeople.classList.remove("hidden");
-  }
+// Reset button handler
 
-  console.log(bill, people);
+btnReset.addEventListener("click", function () {
+  inputBill.value = "";
+  inputTip.value = "";
+  inputPeople.value = "";
+
+  tipTotalEl.textContent = "0.00";
+  tipPerPersonEl.textContent = "0.00";
+
+  btnCalculate.classList.remove("btn-calculate");
+  btnCalculate.classList.add("btn-calculate-disabled");
+
+  btnReset.classList.remove("btn-reset");
+  btnReset.classList.add("btn-reset-disabled");
 });
