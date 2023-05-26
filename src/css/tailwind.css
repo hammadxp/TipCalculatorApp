@@ -11,6 +11,8 @@
     @apply rounded-md border-2 border-transparent bg-is-very-light-grayish-cyan py-2 text-right text-xl font-bold duration-100;
   }
 
+  /* btn tip */
+
   .btn-tip {
     @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white shadow-sm duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
   }
@@ -21,10 +23,6 @@
 
   .tip-selected-styles {
     @apply bg-is-strong-cyan/50 text-is-very-dark-cyan;
-  }
-
-  .invalid-input {
-    @apply mt-2 pr-4 text-right text-xs font-bold text-red-500;
   }
 
   /* btn */
@@ -48,8 +46,42 @@
   .btn-reset-disabled {
     @apply mt-auto cursor-not-allowed opacity-20 shadow-none;
   }
+
+  /* Other */
+
+  .invalid-input {
+    @apply mt-2 pr-4 text-right text-xs font-bold text-red-500;
+  }
+
+  .bill-icon {
+    @apply absolute left-5 top-1/2 h-5 w-5 translate-y-1/2 bg-[leftcenter] bg-[url("/public/images/icon-dollar.svg")] bg-no-repeat content-[];
+  }
 }
 
 *:focus-visible {
   @apply focus:outline-none focus:ring-4 focus:ring-is-strong-cyan focus:ring-opacity-80;
 }
+
+/* #bill-input {
+  background-image: url("/public/images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding: 80px;
+} */
+
+/* .input-wrapper {
+  position: relative;
+} */
+
+/* .bill-icon {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("/public/images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 20px;
+  height: 20px;
+} */

@@ -20,10 +20,7 @@
   </head>
   <body class="bg-is-light-grayish-cyan font-SpaceMono text-is-very-dark-cyan">
     <main class="flex flex-col items-center">
-      <span class="py-10 font-bold uppercase tracking-[0.4em]"
-        >Spli <br />
-        tter</span
-      >
+      <span class="py-10 font-bold uppercase tracking-[0.4em]">Tip Calculator</span>
 
       <div class="flex w-[48rem] gap-4 rounded-xl bg-is-white p-6" id="app-card">
         <!-- Input -->
@@ -34,7 +31,11 @@
 
             <div class="flex flex-col gap-2">
               <label for="bill-input">Bill</label>
-              <input type="number" placeholder="0" id="bill-input" />
+              <div class="relative">
+                <input type="number" step="any" placeholder="0" id="bill-input" class="w-full" />
+                <span class="bill-icon"></span>
+              </div>
+
               <p class="invalid-input invalid-bill hidden">Enter a value above 0</p>
             </div>
 
@@ -57,7 +58,11 @@
 
             <div class="flex flex-col gap-2">
               <label for="people-input">Number of People</label>
-              <input type="number" placeholder="0" id="people-input" />
+              <div class="relative">
+                <input type="number" placeholder="0" id="people-input" class="w-full" />
+                <span class="people-icon"></span>
+              </div>
+
               <p class="invalid-input invalid-people hidden">Enter a value between 1 to 20</p>
             </div>
 
@@ -99,7 +104,7 @@
       </div>
     </main>
 
-    <footer class="mx-auto mt-8 w-fit text-sm">
+    <footer class="mx-auto w-fit py-12 text-sm">
       <div>
         Challenge by
         <a

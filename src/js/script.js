@@ -123,8 +123,11 @@ tipForm.addEventListener("submit", function (e) {
 
     // Calculate tip
 
-    const tipTotal = (bill * tip) / 100;
-    const tipPerPerson = tipTotal / people;
+    const tipTotalRAW = (bill * tip) / 100;
+    const tipTotal = Math.round(tipTotalRAW * 100) / 100;
+
+    const tipPerPersonRAW = tipTotal / people;
+    const tipPerPerson = Math.round(tipPerPersonRAW * 100) / 100;
 
     // Update output
 
