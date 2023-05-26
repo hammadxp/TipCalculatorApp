@@ -54,7 +54,11 @@
   }
 
   .bill-icon {
-    @apply absolute left-5 top-1/2 h-5 w-5 translate-y-1/2 bg-[leftcenter] bg-[url("/public/images/icon-dollar.svg")] bg-no-repeat content-[];
+    @apply absolute left-5 top-[34%] h-5 w-5 bg-[url("/public/images/icon-dollar.svg")] bg-no-repeat content-[];
+  }
+
+  .people-icon {
+    @apply absolute left-5 top-[34%] h-5 w-5 bg-[url("/public/images/icon-person.svg")] bg-no-repeat content-[];
   }
 }
 
