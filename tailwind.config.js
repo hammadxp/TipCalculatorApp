@@ -16,6 +16,8 @@ module.exports = {
         "is-white": "hsl(0, 0%, 100%)",
       },
       screens: {
+        "800px": { max: "800px" },
+        "600px": { max: "600px" },
         "375px": { max: "375px" },
       },
     },

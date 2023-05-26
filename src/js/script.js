@@ -34,6 +34,16 @@ tipOptions.addEventListener("click", function (e) {
   inputTip.value = inputTip.value ? inputTip.value : "";
 });
 
+// Custom tip placeholder handler
+
+inputTip.addEventListener("focusin", function () {
+  inputTip.placeholder = "";
+});
+
+inputTip.addEventListener("focusout", function () {
+  inputTip.placeholder = "Custom";
+});
+
 // Input change handler (for 'Calculate' button visibility)
 
 inputBill.addEventListener("input", checkInputs);
@@ -65,15 +75,15 @@ function resetInvalidIndicator() {
   const invalidPeople = document.querySelector(".invalid-people");
 
   if (this.id === "bill-input") {
-    inputBill.classList.remove("border-red-500");
+    inputBill.classList.remove("border-2", "border-red-500");
     invalidBill.classList.add("hidden");
   }
   if (this.id === "tip-input") {
-    inputTip.classList.remove("border-red-500");
+    inputTip.classList.remove("border-2", "border-red-500");
     invalidTip.classList.add("hidden");
   }
   if (this.id === "people-input") {
-    inputPeople.classList.remove("border-red-500");
+    inputPeople.classList.remove("border-2", "border-red-500");
     invalidPeople.classList.add("hidden");
   }
 }
@@ -99,21 +109,21 @@ tipForm.addEventListener("submit", function (e) {
     const invalidPeople = document.querySelector(".invalid-people");
 
     if (bill <= 0) {
-      inputBill.classList.add("border-red-500");
+      inputBill.classList.add("border-2", "border-red-500");
       invalidBill.classList.remove("hidden");
 
       invalid = true;
     }
 
     if (tip <= 0 || tip > 100) {
-      inputTip.classList.add("border-red-500");
+      inputTip.classList.add("border-2", "border-red-500");
       invalidTip.classList.remove("hidden");
 
       invalid = true;
     }
 
     if (people <= 0 || people > 20) {
-      inputPeople.classList.add("border-red-500");
+      inputPeople.classList.add("border-2", "border-red-500");
       invalidPeople.classList.remove("hidden");
 
       invalid = true;

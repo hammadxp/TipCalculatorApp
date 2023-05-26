@@ -4,21 +4,21 @@
 
 @layer components {
   label {
-    @apply w-fit text-xs;
+    @apply w-fit text-xs 600px:ml-2;
   }
 
   input {
-    @apply rounded-md border-2 border-transparent bg-is-very-light-grayish-cyan py-2 text-right text-xl font-bold duration-100;
+    @apply rounded-md bg-is-very-light-grayish-cyan py-2 text-right text-xl font-bold duration-100 600px:py-3 600px:pr-4;
   }
 
   /* btn tip */
 
   .btn-tip {
-    @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white shadow-sm duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan;
+    @apply rounded-md bg-is-very-dark-cyan py-[6px] font-semibold text-is-white shadow-sm duration-100 hover:bg-is-strong-cyan/50 hover:text-is-very-dark-cyan 800px:py-3;
   }
 
   .btn-tip-custom {
-    @apply py-0 pl-4 text-center placeholder:w-fit placeholder:text-base placeholder:text-is-dark-grayish-cyan;
+    @apply py-0 pl-2 text-center placeholder:w-fit placeholder:pl-3 placeholder:text-base placeholder:text-is-dark-grayish-cyan 800px:placeholder:pl-10 600px:pl-3 600px:placeholder:pl-3;
   }
 
   .tip-selected-styles {
@@ -28,7 +28,7 @@
   /* btn */
 
   .btn-wide {
-    @apply cursor-pointer rounded-md bg-black py-2 text-center text-base font-bold uppercase text-white shadow-sm duration-100;
+    @apply cursor-pointer rounded-md bg-black py-2 text-center text-base font-bold uppercase text-white shadow-sm duration-100 600px:py-3;
   }
 
   .btn-calculate {
@@ -54,38 +54,14 @@
   }
 
   .bill-icon {
-    @apply absolute left-5 top-[34%] h-5 w-5 bg-[url("/public/images/icon-dollar.svg")] bg-no-repeat content-[];
+    @apply absolute left-5 top-[34%] h-5 w-5 bg-[url("/images/icon-dollar.svg")] bg-no-repeat content-[];
   }
 
   .people-icon {
-    @apply absolute left-5 top-[34%] h-5 w-5 bg-[url("/public/images/icon-person.svg")] bg-no-repeat content-[];
+    @apply absolute left-5 top-[34%] h-5 w-5 bg-[url("/images/icon-person.svg")] bg-no-repeat content-[];
   }
 }
 
 *:focus-visible {
   @apply focus:outline-none focus:ring-4 focus:ring-is-strong-cyan focus:ring-opacity-80;
 }
-
-/* #bill-input {
-  background-image: url("/public/images/icon-dollar.svg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding: 80px;
-} */
-
-/* .input-wrapper {
-  position: relative;
-} */
-
-/* .bill-icon {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-image: url("/public/images/icon-dollar.svg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  width: 20px;
-  height: 20px;
-} */

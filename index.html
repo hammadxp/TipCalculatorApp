@@ -20,16 +20,19 @@
   </head>
   <body class="bg-is-light-grayish-cyan font-SpaceMono text-is-very-dark-cyan">
     <main class="flex flex-col items-center">
-      <span class="py-10 font-bold uppercase tracking-[0.4em]">Tip Calculator</span>
+      <span class="py-10 font-bold uppercase tracking-[0.4em] 600px:py-12">Tip Calculator</span>
 
-      <div class="flex w-[48rem] gap-4 rounded-xl bg-is-white p-6" id="app-card">
+      <div
+        class="flex max-w-3xl gap-4 rounded-xl bg-is-white p-6 800px:max-w-xl 800px:flex-col 600px:max-w-sm 600px:px-5"
+        id="app-card"
+      >
         <!-- Input -->
 
-        <div class="w-[50%] p-4">
+        <div class="w-[50%] p-4 800px:w-full 600px:px-0">
           <form action="#" class="flex flex-col gap-8" id="tip-form">
             <!-- Bill -->
 
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 600px:gap-4">
               <label for="bill-input">Bill</label>
               <div class="relative">
                 <input type="number" step="any" placeholder="0" id="bill-input" class="w-full" />
@@ -41,9 +44,9 @@
 
             <!-- Tip options -->
 
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 600px:gap-4">
               <label for="tip-input">Select Tip %</label>
-              <div class="grid grid-cols-3 gap-2" id="tip-options">
+              <div class="grid grid-cols-3 gap-2 800px:gap-3" id="tip-options">
                 <button class="btn-tip tip-option tip-selected tip-selected-styles">5%</button>
                 <button class="btn-tip tip-option">10%</button>
                 <button class="btn-tip tip-option">15%</button>
@@ -56,7 +59,7 @@
 
             <!-- Number of people -->
 
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 600px:gap-4">
               <label for="people-input">Number of People</label>
               <div class="relative">
                 <input type="number" placeholder="0" id="people-input" class="w-full" />
@@ -74,7 +77,9 @@
 
         <!-- Output -->
 
-        <div class="flex w-[50%] flex-col gap-8 rounded-xl bg-is-very-dark-cyan px-6 pb-8 pt-10 text-is-white">
+        <div
+          class="flex w-[50%] flex-col gap-8 rounded-xl bg-is-very-dark-cyan px-6 pb-8 pt-10 text-is-white 800px:w-full"
+        >
           <div class="flex">
             <div class="flex flex-col gap-0">
               <p class="text-xs">Tip</p>
@@ -104,21 +109,26 @@
       </div>
     </main>
 
-    <footer class="mx-auto w-fit py-12 text-sm">
-      <div>
-        Challenge by
-        <a
-          href="https://www.frontendmentor.io?ref=challenge"
-          target="_blank"
-          class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
-          >Frontend Mentor</a
-        >. Coded by
-        <a
-          href="https://hammad-dev.netlify.app"
-          target="_blank"
-          class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
-          >Hammad Javed</a
-        >.
+    <footer class="mx-auto w-fit py-14 text-sm">
+      <div class="flex gap-2 600px:flex-col 600px:text-center">
+        <div>
+          Challenge by
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
+            >Frontend Mentor</a
+          >.
+        </div>
+        <div>
+          Coded by
+          <a
+            href="https://hammad-dev.netlify.app"
+            target="_blank"
+            class="font-bold underline underline-offset-2 duration-100 hover:opacity-90"
+            >Hammad Javed</a
+          >.
+        </div>
       </div>
     </footer>
   </body>
